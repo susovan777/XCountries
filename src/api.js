@@ -9,7 +9,7 @@ const apiData = async () => {
     // console.log(response);
     return response.data;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 

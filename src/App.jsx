@@ -9,7 +9,7 @@ export default function App() {
     const fetchData = async () => {
       const data = await apiData();
       setCountries(data);
-      console.log(data[0]);
+      // console.log(data[0]);
     };
     fetchData();
   }, []);
