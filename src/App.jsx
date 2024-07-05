@@ -7,9 +7,13 @@ export default function App() {
   const [countries, setCountries] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const data = await apiData();
-      setCountries(data);
-      // console.log(data[0]);
+      try {
+        const data = await fetch("https://xcountries-backend.azurewebsites.net/all");
+        const apiData = await data.json();
+        setCountries(apiData);
+      } catch (e) {
+        console.error("Error fetching data:", e);
+      }
     };
     fetchData();
   }, []);
@@ -19,8 +23,8 @@ export default function App() {
     <div className="App">
       {countries.map((country) => {
         return (
-          <div className="card">
-            <img src={country.flag} alt={country.abbr} />
+          <div className="card" key={country.name}>
+            <img src={country.flag} alt={country.name} />
             <h3>{country.name}</h3>
           </div>
         );

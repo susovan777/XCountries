@@ -12,12 +12,12 @@ const apiData = async () => {
       .then((data) => {
         // console.log(data);
         return data;
-      })
-      .catch(e => console.error("Error fetching data: " + e));
+      });
+    // .catch((e) => console.error("Error fetching data: " + e.message));
     // console.log(response);
     return response;
   } catch (e) {
-    console.error(e);
+    console.error("Error fetching data: " + e);
   }
 };
 
