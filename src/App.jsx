@@ -8,9 +8,9 @@ export default function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch("https://xcountries-backend.azurewebsites.net/all");
-        const apiData = await data.json();
-        setCountries(apiData);
+        const apiData = await fetch("https://xcountries-backend.azurewebsites.net/all");
+        const data = await apiData.json();
+        setCountries(data);
       } catch (e) {
         console.error("Error fetching data:", e);
       }
