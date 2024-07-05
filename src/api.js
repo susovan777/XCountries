@@ -12,7 +12,8 @@ const apiData = async () => {
       .then((data) => {
         // console.log(data);
         return data;
-      });
+      })
+      .catch(e => console.error("Error fetching data: " + e));
     // console.log(response);
     return response;
   } catch (e) {
